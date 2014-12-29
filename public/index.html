@@ -4,6 +4,13 @@
 		<meta name="viewport"    content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<meta name="author"      content="Matthew Rubin">
+				
+		<!-- Angular Scripts-->
+		<script src="../bower_components/angular/angular.js"></script>
+		<script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+		
+		<!-- App Scripts -->
+		<script src="app/app.js"></script>
 		
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="css/style.css">
@@ -12,37 +19,10 @@
 		<title>Project Inspire</title>
 	</head>
 		
-	<body>
-		<div id="splash">
-			<div id="splash-header">
-				<div class="splash-page-align">
-					<a href="" id="splash-logo"></a>
-					<form id="splash-login">
-						<div style="height: 50px">
-						<input type="text" class="input-md splash-login-element" placeholder="Username or Email">
-						<input type="text" class="input-md splash-login-element" placeholder="Password">
-						<button type="submit" class="btn btn-primary">Login</button>
-						</div>
-					</form>
-				</div>
-			</div>
-			
-			<div id="splash-body">
-				<div class="splash-page-align">
-					<div id="splash-description">
-						<h1>What is Project Inspire?</h1>
-						<h2>Ever get tired of flipping through pictures of your media-whore friends with their babies and dogs? Project Inspire is a step away from social numbing and towards social inspiration.</h2>
-					</div>
-					<form id="splash-signup">
-						<h1>Don't have an account? Sign up!</h1>
-						<input type="text" class="input-lg" placeholder="Full Name">
-						<input type="text" class="input-lg" placeholder="Email">
-						<input type="text" class="input-lg" placeholder="Username">
-						<input type="text" class="input-lg" placeholder="Password">
-						<button type="submit" id="signup-button" class="btn btn-primary">Create your account.</button>
-					</form>
-				</div>
-			</div>
-		</div>
+	<body ng-app="FrontierInspirationApp">
+
+		<div ui-view></div>
+
 	</body>
+		
 </html>
