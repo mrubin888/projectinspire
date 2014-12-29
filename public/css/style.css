@@ -1,0 +1,92 @@
+body {
+	margin: 0;
+}
+
+#splash {
+	background: #505D6E url(../res/splash.jpg);
+	min-height: 100%;
+}
+
+#splash-header {
+	background: #555555;
+	border: 1px dotted #FFFFFF bottom;
+	height: 50px;
+}
+
+#splash-logo {
+	background: url(../res/splash-logo.png);
+	display: block;
+	float: left;
+	height: 50px;
+	margin: 0 20px;
+	width: 150px;
+}
+
+#splash-login {
+	float: right;
+	height: 100%;
+	width: 355px;
+}
+
+#splash-body {
+	padding-top: 80px;
+}
+
+#splash-description {
+	float: left;
+	margin-left: 30px;
+	width: 50%;
+}
+
+#splash-description h1 {
+	color: white;
+	font-size: 50px;
+	font-weight: bold;
+	/*margin-bottom: 50px;*/
+}
+
+#splash-description h2 {
+	color: white;
+	font-size: 30px;
+	line-height: 150%;
+}
+
+#splash-signup {
+	background-color: #AAAAAA;
+	border: 1px dotted white;
+	border-radius: 10px;
+	float: right;
+	height: 400px;
+	margin: 20px 10px 0 0;
+	padding: 0 20px;
+	width: 300px;
+}
+
+#splash-signup h1{
+	border-bottom: 1px dotted black;
+	color: black;
+	font-size: 25px;
+	padding-bottom: 10px;
+}
+
+#splash-signup input{
+	margin: 5px auto;
+}
+
+#splash-signup button{
+	float: right;
+	margin: 10px 10px 0 0;
+}
+
+.splash-page-align {
+	margin: 0 auto;
+	width: 920px;
+}
+
+.splash-login-element {
+	display: inline-block;
+	margin: 12px 0;
+	padding: 0;
+	position: relative;
+	width: 140px;
+}

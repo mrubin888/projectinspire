@@ -1,0 +1,13 @@
+{
+	"name"			: "project-inspire-app",
+	"version"		: "0.0.0",
+	"description"	: "A web application for creative portfolio sharing.",
+	"main"			: "server.js",
+	"author"		: "mrubin888@gmail.com",
+	"dependencies"	: 
+	{
+		"express"		: "~3.4.x",
+		"mongoose"		: "~3.6.x",
+		"multer"		: "0.x"
+	}
+}
