@@ -6,6 +6,8 @@ var app			= express();
 var mongoose	= require('mongoose');
 var multer		= require('multer');
 
+var passport		= require('passport');
+
 // configuration
 var username	= 'mrubin';
 var password	= 'shock!5129';
@@ -20,13 +22,19 @@ app.configure(function() {
 	app.use(express.json());
 	app.use(express.urlencoded());													// pull html info in POST
 	app.use(express.methodOverride());
+	app.use(express.cookieParser());
+	app.use(express.session({ secret: 'asd87681ASD' }));
 	app.use(multer({
 		dest: './static/uploads/',
 		rename: function (fieldname, filename) {
 			return filename.replace(/\W+/g, '-').toLowerCase();
 		}
 	}));	
+	app.use(passport.initialize());
+	app.use(passport.session());
 });
+
+require('./app/routes.js')(app);
 
 // listen
 var portNo = process.env.PORT || 8001;

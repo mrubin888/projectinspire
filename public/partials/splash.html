@@ -1,11 +1,11 @@
-<div id="splash">
+<div id="splash" ng-controller="userController">
 	<div id="splash-header">
 		<div class="splash-page-align">
 			<a href="" id="splash-logo"></a>
-			<form id="splash-login">
+			<form id="splash-login" action="/login" method="post">
 				<div style="height: 50px">
-				<input type="text" class="input-md splash-login-element" placeholder="Username or Email">
-				<input type="text" class="input-md splash-login-element" placeholder="Password">
+				<input type="text" class="input-md splash-login-element" placeholder="Username or Email" name="username">
+				<input type="password" class="input-md splash-login-element" placeholder="Password" name="password">
 				<button type="submit" class="btn btn-primary">Login</button>
 				</div>
 			</form>
@@ -18,12 +18,12 @@
 				<h1>What is Project Inspire?</h1>
 				<h2>Ever get tired of flipping through pictures of your media-whore friends with their babies and dogs? Project Inspire is a step away from social numbing and towards social inspiration.</h2>
 			</div>
-			<form id="splash-signup">
+			<form id="splash-signup" action="/signup" method="post">
 				<h1>Don't have an account? Sign up!</h1>
 				<input type="text" class="input-lg" placeholder="Full Name">
 				<input type="text" class="input-lg" placeholder="Email">
-				<input type="text" class="input-lg" placeholder="Username">
-				<input type="text" class="input-lg" placeholder="Password">
+				<input type="text" class="input-lg" placeholder="Username" name="username">
+				<input type="password" class="input-lg" placeholder="Password" name="password">
 				<button type="submit" id="signup-button" class="btn btn-primary">Create your account.</button>
 			</form>
 		</div>
