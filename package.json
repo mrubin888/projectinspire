@@ -6,11 +6,12 @@
 	"author"		: "mrubin888@gmail.com",
 	"dependencies"	: 
 	{
-		"bcrypt-nodejs"	: "~0.0.x",
-		"express"		: "~3.4.x",
-		"mongoose"		: "~3.6.x",
-		"multer"		: "~0.x",
-		"passport"		: "~0.2.x",
-		"passport-local": "~0.1.x"
+		"bcrypt-nodejs"			: "~0.0.x",
+		"express"				: "~3.4.x",
+		"express-session-mongo"	: "~0.1.x",
+		"mongoose"				: "~3.6.x",
+		"multer"				: "~0.x",
+		"passport"				: "~0.2.x",
+		"passport-local"		: "~0.1.x"
 	}
 }

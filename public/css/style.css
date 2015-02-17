@@ -8,8 +8,6 @@ body {
 }
 
 #splash-header {
-	background: #555555;
-	border: 1px dotted #FFFFFF bottom;
 	height: 50px;
 }
 
@@ -59,23 +57,40 @@ body {
 	width: 300px;
 }
 
-#splash-signup h1{
+#splash-signup h1 {
 	border-bottom: 1px dotted black;
 	color: black;
 	font-size: 25px;
 	padding-bottom: 10px;
 }
 
-#splash-signup input{
+#splash-signup input {
 	margin: 5px auto;
 }
 
-#splash-signup button{
+#splash-signup button {
 	float: right;
 	margin: 10px 10px 0 0;
 }
 
-.splash-page-align {
+#main-header {
+	height: 50px;
+}
+
+#main-logo {
+	background: url(../res/main-logo.png);
+	float: left;
+	height: 50px;
+	margin-left: -15px;
+	width: 50px;
+}
+
+.header-bar {
+	background: #555555;
+	border: 1px dotted #FFFFFF bottom;
+}
+
+.page-align {
 	margin: 0 auto;
 	padding-left: 20px;
 	width: 920px;
@@ -87,4 +102,9 @@ body {
 	padding: 0;
 	position: relative;
 	width: 140px;
+}
+
+.signup-error {
+	color: red;
+	padding-left: 5px;
 }

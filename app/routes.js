@@ -43,7 +43,8 @@ module.exports = function(app)
 	));
 	
 	passport.use('signup', new LocalStrategy(
-		function(username, password, done) {
+		{ passReqToCallback: true },
+		function(req, username, password, done) {
 			console.log("SIGNUP ROUTE HIT");
 			User.findOne({ username : username },
 				function(err, user) {
@@ -61,10 +62,11 @@ module.exports = function(app)
 					var newUser			= new User();
 					newUser.username	= username;
 					newUser.password	= createHash(password);
+					newUser.firstname	= req.body.firstname;
+					newUser.lastname	= req.body.lastname;
+					newUser.email		= req.body.email;
 					
 					newUser.save(function(err) {
-						console.log(username);
-						console.log(password);
 						if (err) {
 							console.log("Error saving user: ", err);
 							throw err;
@@ -88,14 +90,14 @@ module.exports = function(app)
 	});
 	
 	app.post('/login',
-		passport.authenticate('login', { successRedirect: '/#/debug',
-										 failureRedirect: '/#/splash'
+		passport.authenticate('login', { successRedirect: '/',
+										 failureRedirect: '/'
 		})
 	);
 	
 	app.post('/signup',
-		passport.authenticate('signup', { successRedirect: '/#/debug',
-										  failureRedirect: '/#/splash'
+		passport.authenticate('signup', { successRedirect: '/',
+										  failureRedirect: '/'
 		})
 	);
 	
@@ -115,24 +117,18 @@ module.exports = function(app)
 		
 	});
 	
-	// POST a new user
-	app.post('/api/users', function(req, res) {
-		console.log("POST user");
-		
-		User.create({
-			firstname	: req.query.firstname,
-			lastname	: req.query.lastname,
-			email		: req.query.email,
-			username	: req.query.username
-		}, function(err, user) {
-		
+	// GET user by name
+	app.get('/api/users/:username', function(req, res) {
+	
+		User.findOne( { username : username}, function(err, user) {
+			
 			if (err) {
-				console.log("POST new user failed with error: ", err);
+				console.log("GET user by name failed with error: ", err);
 				return res.send(err);
 			}
 			
 			res.json(user);
-		
 		});
+		
 	});
 }

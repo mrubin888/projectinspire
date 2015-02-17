@@ -13,6 +13,14 @@ FrontierInspirationApp.config(function($stateProvider, $urlRouterProvider) {
 			url: '/splash',
 			templateUrl: 'partials/splash.html'
 		})
+		.state('home', {
+			url: '/',
+			templateUrl: 'partials/home.html'
+		})
+		.state('home.main', {
+			url: 'home',
+			templateUrl: 'partials/main.html'
+		})
 		.state('user-debug', {
 			url: '/debug',
 			templateUrl: 'partials/debug.html'
