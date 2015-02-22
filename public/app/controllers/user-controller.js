@@ -117,7 +117,6 @@ angular.module("FrontierInspirationApp").controller('userController',
                 transformRequest: angular.identity
 			})
 			.success(function(postData) {
-				console.log(postData);
 				$state.go("user-debug");
 			})
 			.error(function(data) {

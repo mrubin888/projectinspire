@@ -7,7 +7,7 @@ var mongoose	= require('mongoose');
 var multer		= require('multer');
 
 var passport	= require('passport');
-var mongoStore	= require('express-session-mongo');
+//var mongoStore	= require('express-session-mongo');
 
 // configuration
 var username	= 'mrubin';
@@ -23,11 +23,10 @@ app.configure(function() {
 	app.use(express.json());
 	app.use(express.urlencoded());													// pull html info in POST
 	app.use(express.methodOverride());
-	//app.use(express.cookieParser());
+	app.use(express.cookieParser());
 	app.use(express.session({	secret	: 'asd87681ASD',
-								store	: new mongoStore(),
 								cookie	: {
-									maxAge : 60 * 60 * 24 * 30
+									maxAge : 60 * 60 * 24 * 30		// ~1 month
 								}
 							}));
 	app.use(multer({

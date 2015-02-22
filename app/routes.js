@@ -79,20 +79,23 @@ module.exports = function(app)
 		}
 	));
 	
-	passport.serializeUser(function(user, done) {
+	passport.serializeUser( function(user, done) {
 	  done(null, user._id);
 	});
 	 
-	passport.deserializeUser(function(id, done) {
+	passport.deserializeUser( function(id, done) {
 	  User.findById(id, function(err, user) {
 		done(err, user);
 	  });
 	});
 	
 	app.post('/login',
-		passport.authenticate('login', { successRedirect: '/',
-										 failureRedirect: '/'
-		})
+		passport.authenticate('login', { failureRedirect: '/' }),
+			function (req, res) {
+				console.log(req);
+				console.log(res);
+				res.redirect('/');
+			}
 	);
 	
 	app.post('/signup',
