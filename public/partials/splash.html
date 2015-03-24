@@ -2,12 +2,10 @@
 	<div id="splash-header" class="header-bar">
 		<div class="page-align">
 			<a ui-sref="splash" id="splash-logo"></a>
-			<form id="splash-login" action="/login" method="post">
-				<div style="height: 50px">
-					<input type="text" class="input-md splash-login-element" placeholder="Username or Email" name="username">
-					<input type="password" class="input-md splash-login-element" placeholder="Password" name="password">
-					<button type="submit" class="btn btn-primary">Login</button>
-				</div>
+			<form id="splash-login" style="height: 50px">
+				<input type="text" class="input-md splash-login-element" placeholder="Username or Email" ng-model="formData.login_username"></input>
+				<input type="password" class="input-md splash-login-element" placeholder="Password" ng-model="formData.login_password"></input>
+				<button type="submit" class="btn btn-primary" ng-click="login()">Login</button>
 			</form>
 		</div>
 	</div>
@@ -28,7 +26,7 @@
 				<div class="signup-error">{{message2}}</div>
 				<input type="password" class="input-lg" placeholder="Password" ng-model="formData.password">
 				<div class="signup-error">{{message3}}</div>
-				<button type="submit" id="signup-button" class="btn btn-primary" ng-click="addUser()">Create your account.</button>
+				<button type="submit" id="signup-button" class="btn btn-primary" ng-click="signup()">Create your account.</button>
 			</form>
 		</div>
 	</div>

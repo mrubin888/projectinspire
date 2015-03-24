@@ -11,19 +11,25 @@
 		
 		<!-- App Scripts -->
 		<script src="app/app.js"></script>
+		
+		<!-- App Controllers -->
 		<script src="app/controllers/user-controller.js"></script>
+		<script src="app/controllers/splash-controller.js"></script>
+		<script src="app/controllers/tab-controller.js"></script>
+		<script src="app/controllers/journal-controller.js"></script>
+		
+		<!-- App Services -->
+		<script src="app/services/auth-http-response-interceptor-service.js"></script>
 		
 		<!-- Stylesheets -->
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="../extern/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="../extern/bootstrap/css/bootstrap.css"></link>
+		<link rel="stylesheet" href="css/style.css"></link>
 		
 		<title>Project Inspire</title>
 	</head>
 		
 	<body ng-app="FrontierInspirationApp">
-
 		<div ui-view></div>
-
 	</body>
 	
 </html>

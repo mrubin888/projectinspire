@@ -1,9 +1,18 @@
-<div id="main-header" class="header-bar">
-	<div class="page-align">
-		<a ui-sref=".main" id="main-logo"></a>
+<div ng-controller="userController">
+	<div id="main-header" class="header-bar">
+		<div class="page-align" ng-controller="tabController">
+			<a ui-sref=".main" id="main-logo"></a>
+			<div id="main-header-tab-container">
+				<a ui-sref=".journal.text-entry" class="main-header-tab" id="journal-tab" ng-class="{selected: state.current.name === 'home.journal.text-entry' || state.current.name === 'home.journal.img-entry'}"></a>
+				<a ui-sref=".profile" class="main-header-tab" id="profile-tab" ng-class="{selected: state.current.name === 'home.profile'}"></a>
+			</div>
+			<button id="logout-button" class="btn btn-primary" ng-click="logout()">Logout</button>
+		</div>
 	</div>
-</div>
 
-<div class="page-align">
-	<div ui-view></div>
+	<div id="main-body">
+		<div class="page-align">
+			<div ui-view></div>
+		</div>
+	</div>
 </div>

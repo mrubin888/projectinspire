@@ -2,6 +2,10 @@ body {
 	margin: 0;
 }
 
+textarea {
+	resize: none;
+}
+
 #splash {
 	background: #505D6E url(../res/splash.jpg);
 	min-height: 100%;
@@ -77,12 +81,75 @@ body {
 	height: 50px;
 }
 
+#main-header-tab-container {
+	float: left;
+	padding: 10px 0 0 0;
+	width: 200px;
+}
+
+#main-body {
+	background: lightgray;
+	padding: 10px 0;
+	min-height: 100%;
+}
+
 #main-logo {
 	background: url(../res/main-logo.png);
 	float: left;
 	height: 50px;
-	margin-left: -15px;
 	width: 50px;
+}
+
+#journal-tab {
+	background: url(../res/main-header-journal-inactive.png);
+}
+
+#journal-tab:hover {
+	background: url(../res/main-header-journal-active.png);
+}
+
+#journal-tab.selected {
+	background: url(../res/main-header-journal-active.png);
+}
+
+#profile-tab {
+	background: url(../res/main-header-profile-inactive.png);
+}
+
+#profile-tab:hover {
+	background: url(../res/main-header-profile-active.png);
+}
+
+#profile-tab.selected {
+	background: url(../res/main-header-profile-active.png);
+}
+
+#logout-button {
+	float: right;
+	margin-right: 7px;
+	margin-top: 7px;
+}
+
+.new-post-element {
+	display: block;
+	margin-bottom: 20px;
+}
+
+.last-new-post-element {
+	margin-bottom: -20px;
+}
+
+.full-width-input {
+	width: 100%;
+}
+
+.content-header {
+	font-size: 2em;
+	margin-bottom: 10px;
+}
+
+.content-value {
+	white-space: pre-wrap;
 }
 
 .header-bar {
@@ -92,7 +159,7 @@ body {
 
 .page-align {
 	margin: 0 auto;
-	padding-left: 20px;
+	padding: 0 10px;
 	width: 920px;
 }
 
@@ -107,4 +174,51 @@ body {
 .signup-error {
 	color: red;
 	padding-left: 5px;
+}
+
+.main-header-tab {
+	display: block;
+	float: left;
+	height: 30px;
+	width: 70px;
+	margin: 0 10px;
+}
+
+.main-body-text {
+	font-size: 20px;
+}
+
+.text-container {
+	border: 1px dotted green;
+	margin: 10px 0;
+	padding: 20px;
+	width: 100%;
+}
+
+.tutorial {
+	background-color: lightgreen;
+}
+
+.add-content {
+	background-color: #FFFFC0;
+}
+
+.existing-content {
+	background-color: lightyellow;
+}
+
+.entry-header {
+	height: 30px;
+	display: block;
+}
+
+.entry-header-tab {
+	display: inline-block;
+	float: right;
+	margin-left: 20px;
+}
+
+.entry-header-timestamp {
+	display: inline-block;
+	float: left;
 }

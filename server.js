@@ -23,7 +23,7 @@ app.configure(function() {
 	app.use(express.json());
 	app.use(express.urlencoded());													// pull html info in POST
 	app.use(express.methodOverride());
-	app.use(express.cookieParser());
+	app.use(express.cookieParser('itsasecret12311415'));
 	app.use(express.session({	secret	: 'asd87681ASD',
 								cookie	: {
 									maxAge : 60 * 60 * 24 * 30		// ~1 month

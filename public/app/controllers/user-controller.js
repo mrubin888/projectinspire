@@ -2,29 +2,49 @@
 
 console.log("user-controller.js");
 
-angular.module("FrontierInspirationApp").controller('userController',
-	function($scope, $rootScope, $http, $state)
-	{
-		$http.get("/api/users")
-		.success( function(data) {
-			console.log("SUCCESS! ", data);
+angular.module ("FrontierInspirationApp").controller ('userController',
+	function ($scope, $rootScope, $http, $state) {
+		
+		$http.get ("/api/users/session")
+		.success (function (data) {
+			$scope.sessionUser = data;
 		})
-		.error( function(data) {
-			console.log("ERROR! ", data);
+		.error (function (data) {
+			
 		});
 		
-		if ($rootScope.username)
-		{
-			$http.get("/api/users/?username=" + $rootScope.username)
-			.success( function(data) {
-				console.log("SUCCESS! ", data);
+		$scope.logout	= function () {
+			$http.get ("/logout")
+			.success (function (data) {
+				$state.go ('splash');
 			})
-			.error( function(data) {
-				console.log("ERROR! ", data);
+			.error (function (data) {
+
 			});
 		}
 		
-		$scope.addUser = function() {
+		$scope.login	= function () {
+			
+			if (!$scope.formData)
+				return;
+			
+			var formData		= new FormData ();
+			formData.append ("username", $scope.formData.login_username);
+			formData.append ("password", $scope.formData.login_password);
+			
+			$http.post ("/login", formData,	{
+                headers: { 'Content-Type': undefined },
+                transformRequest: angular.identity
+			})
+			.success (function (data) {
+				$state.go('home.main');
+			})
+			.error (function (data) {
+			
+			});
+		}
+		
+		$scope.signup	= function () {
 			
 			if (!$scope.formData)
 				return;
@@ -65,7 +85,7 @@ angular.module("FrontierInspirationApp").controller('userController',
 				return;
 			}
 			
-			if (!$scope.formData.email.match(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/)) {
+			if (!$scope.formData.email.match (/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/)) {
 				$scope.message1		= "Invalid email address.";
 				return;
 			}
@@ -80,7 +100,7 @@ angular.module("FrontierInspirationApp").controller('userController',
 				return;
 			}
 			
-			if (!$scope.formData.username.match(/^[a-zA-Z0-9]{6,12}$/)) {
+			if (!$scope.formData.username.match (/^[a-zA-Z0-9]{6,12}$/)) {
 				$scope.message2		= "Username cannot contain any special characters.";
 				return;
 			}
@@ -95,31 +115,31 @@ angular.module("FrontierInspirationApp").controller('userController',
 				return;
 			}
 			
-			if (!$scope.formData.password.match(/^[a-zA-Z0-9!@#$%^&*]{8,20}$/)) {
+			if (!$scope.formData.password.match (/^[a-zA-Z0-9!@#$%^&*]{8,20}$/)) {
 				$scope.message3		= "Password contains invalid characters.";
 				return;
 			}
 			
-			if (!$scope.formData.password.match(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/)) {
+			if (!$scope.formData.password.match (/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/)) {
 				$scope.message3		= "Password must contain a number and a special character.";
 				return;
 			}
 			
-			var formData		= new FormData();
-			formData.append("firstname",	firstName);
-			formData.append("lastname",		lastName);
-			formData.append("email",		$scope.formData.email);
-			formData.append("username",		$scope.formData.username);
-			formData.append("password",		$scope.formData.password);
+			var formData		= new FormData ();
+			formData.append ("firstname",	firstName);
+			formData.append ("lastname",	lastName);
+			formData.append ("email",		$scope.formData.email);
+			formData.append ("username",	$scope.formData.username);
+			formData.append ("password",	$scope.formData.password);
 			
-			$http.post("/signup", formData,	{
-                headers: {'Content-Type': undefined },
+			$http.post ("/signup", formData,	{
+                headers: { 'Content-Type': undefined },
                 transformRequest: angular.identity
 			})
-			.success(function(postData) {
-				$state.go("user-debug");
+			.success (function (data) {
+				$state.go('home.main');
 			})
-			.error(function(data) {
+			.error (function (data) {
 				
 			});
 		}

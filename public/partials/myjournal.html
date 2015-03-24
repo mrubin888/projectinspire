@@ -1,0 +1,30 @@
+<div ng-controller="journalController">
+	<div class="text-container tutorial">Your journal is your place for posting your inspirations!</div>
+	<div class="text-container add-content">
+		<form>
+			<div class="content-header">New Entry</div>
+			<div id="new-post-tab-container">
+				<a ui-sref=".text-entry" class="new-post-tab" ng-class="{selected: state.current.name === 'home.journal.text-entry'}">Text</a>
+				<a ui-sref=".img-entry" class="new-post-tab" ng-class="{selected: state.current.name === 'home.journal.img-entry'}">Image</a>
+			</div>
+			<input type="text" class="input-lg new-post-element full-width-input" placeholder="Entry Title" ng-model="formData.title"></input>
+			<div ui-view></div>
+			<button type="submit" class="btn btn-primary new-post-element last-new-post-element full-width-input" ng-disabled="!isFormValid(formData) && (state.current.name !== 'home.journal.img-entry' || !formValid)" ng-click="addEntry()">Post</button>
+		</form>
+	</div>
+	<div class="text-container existing-content">
+		Showing {{entries.length}} of {{entries.length}} entries:
+	</div>
+	<div ng-repeat="entry in entries">
+		<div class="text-container existing-content">
+			<div class="entry-header">
+				<div class="entry-header-timestamp">Posted {{entry.timeDiff}} ago</div>
+				<button class="entry-header-tab" ng-click="removeEntry(entry._id)">X</button>
+				<!-- <button class="entry-header-tab">E</button> -->
+			</div>
+			<div class="content-header">{{entry.title}}</div>
+			<div class="content-value" ng-hide="entry.contentType !== 'text'">{{entry.content}}</div>
+			<img ng-src="{{entry.content}}" width="600"  ng-hide="entry.contentType !== 'image'"></img>
+		</div>
+	</div>
+</div>
